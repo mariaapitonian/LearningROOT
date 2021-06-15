@@ -10,6 +10,10 @@ TGraph Class
 	g1->Draw("ACP");
 
 3. Using a random number generator
+	for(int i=0, i<100, i++) {
+		g1->SetPoint(i, gRandom->[...random type...], gRandom[...random type...]);
+	}
+	g1->Draw("AP") or ("ACP") or ("ALP");
 	
 
 
