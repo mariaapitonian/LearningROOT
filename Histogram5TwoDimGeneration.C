@@ -3,15 +3,19 @@
 {
 	TH2D *hist = new TH2D("XY", "Sample Two Dimensional Histogram", 10, -3, 3, 10, -3, 3);
 
-	TH1D *h1 = new TH1D("X", "X values", 8, -3, 3);
-	TH1D *h2 = new TH1D("Y", "Y values", 8, -3, 3);
-	
 	for(int i=0;i<1000;i++) {
-		h1->Fill(gRandom->Gaus(0,1));
-	       	h2->Fill(gRandom->Gaus(1,1));
 		hist->Fill(gRandom->Gaus(0,1), gRandom->Gaus(0,1), 1);
 	}
 
-	//hist->Add(h1, h2, 1, 1);
-	hist->Draw("HIST");
+	TCanvas *c1 = new TCanvas("Hist5_2DHistograms", "3D Histogram Representations", 1800,1800);
+	c1->Divide(2,2);
+	c1->cd(1);
+	hist->Draw("CONT Z");
+	c1->cd(2);
+	hist->Draw("E");	
+	c1->cd(3);
+	hist->Draw("LEGO2");
+	c1->cd(4);
+	hist->Draw("BOX"); //("LEGO3");
+
 }
