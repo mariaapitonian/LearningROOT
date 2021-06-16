@@ -32,9 +32,23 @@ PARAMETERS
 
 TF1::SetParameters
 	f1->SetParameters(2, 1);
+
 TF1::SetParName
 	f1->SetParName(int [par number], const char* [par name]);
+
 TF1::SetParNames
 	f1->SetParNames("slope", "offset");
+
 TF1::SetParLimits
 	f1->SetParLimits(int [par number], double [parmin], double [parmax]);
+
+TF1::GetParameter
+	f1->GetParameter(int [par number])
+	
+TF1::Print
+	f1->Print
+	(tells fits and values of parameters)
+
+TGraph::Print
+	g1->Print
+	(gives all data points)
