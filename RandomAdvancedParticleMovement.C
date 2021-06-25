@@ -5,22 +5,22 @@
 	double y = 0.0;
 	double z = 0.0;
 	//double distance = 0;
-	double lamda = 10;
+	double lamda = 100;
 	double r, theta, phi, deltar;
 
 	TGraph2D *graph = new TGraph2D();
 	graph->SetPoint(0,x,y,z);
 
-	for(int t=1; t<30; t++) {
+	for(int t=1; t<1000; t++) {    //adjust for more or less point
 	//while(true) {
 	//	t+=1;
-		deltar = gRandom->Uniform(0.5);
+		deltar = 1; //gRandom->Uniform(0.5);
 		
-		r += lamda+sqrt(-2*log(0.5*deltar));
-		theta += gRandom->Uniform(3.141593);
-		phi += gRandom->Uniform(3.141593);
+		r += lamda+sqrt(-2*log((1/1.5707963)*deltar));
+		theta += gRandom->Uniform(2*3.141593);
+		phi += gRandom->Uniform(2*3.141593);
 		x=r*cos(theta)*sin(phi);
-		y=r*sin(theta)*cos(phi);
+		y=r*sin(theta)*sin(phi);
 		z=r*cos(phi);
 
 		//distance+=sqrt(totalx*totalx+totaly*totaly+totalz*totalz); //module of displacement vector
